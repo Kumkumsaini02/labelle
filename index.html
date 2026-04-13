@@ -46,12 +46,6 @@
     /* NAVBAR — centered logo, editorial 3-col */
     .nav{position:fixed;top:0;left:0;right:0;z-index:500;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:30px 64px;transition:padding .4s var(--ease),background .4s,border-color .4s;border-bottom:1px solid transparent}
     .nav.stuck{padding:16px 64px;background:rgba(250,248,245,.97);backdrop-filter:blur(20px);border-color:rgba(28,25,23,.08)}
-    .nav.hero-nav .nav-links a{color:rgba(250,248,245,.7)}
-    .nav.hero-nav .nav-links a:hover,.nav.hero-nav .nav-links a.active{color:#fff}
-    .nav.hero-nav .nav-logo{color:#fff}
-    .nav.hero-nav .nav-icon{color:rgba(250,248,245,.6)}
-    .nav.hero-nav .nav-icon:hover{color:#fff}
-    .nav.hero-nav .ham span{background:#fff}
     .nav-links{display:flex;gap:32px;grid-column:1}
     .nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;color:var(--ink-3);position:relative;transition:color .3s}
     .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--ink);transition:width .35s var(--ease)}
@@ -98,21 +92,28 @@
     .sec-h2-lt em{color:rgba(255,255,255,.7);font-style:italic}
     .sec-hd{text-align:center}
 
-    /* HERO */
-    #home{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .hero-bg{position:absolute;inset:0;transform:scale(1.1);will-change:transform}
-    .hero-bg img{object-position:center 18%;filter:brightness(.52) saturate(.9)}
-    .hero-ov{position:absolute;inset:0;background:linear-gradient(175deg,rgba(28,25,23,.72) 0%,rgba(28,25,23,.18) 55%,rgba(28,25,23,.68) 100%)}
-    .hero-cnt{position:relative;z-index:2;text-align:center;max-width:860px;padding:0 40px}
-    .hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:30px;opacity:0;transform:translateY(14px);animation:fadeUp .8s var(--ease) .3s forwards;font-weight:400}
-    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(50px,7.5vw,108px);font-weight:400;line-height:.96;color:#fff;margin-bottom:30px;opacity:0;transform:translateY(26px);animation:fadeUp .9s var(--ease) .5s forwards;letter-spacing:-1px}
-    .hero-title em{font-style:italic;color:rgba(255,255,255,.75)}
-    .hero-sub{font-size:14.5px;line-height:2;color:rgba(255,255,255,.48);max-width:480px;margin:0 auto 50px;font-weight:300;opacity:0;transform:translateY(14px);animation:fadeUp .9s var(--ease) .7s forwards}
-    .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .9s var(--ease) .9s forwards}
-    .hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeIn 1s var(--ease) 1.5s forwards}
-    .scroll-label{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(255,255,255,.4)}
-    .scroll-bar{width:1px;height:52px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.5));animation:sBar 2.2s ease-in-out infinite}
-    @keyframes sBar{0%,100%{opacity:.3;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
+    /* HERO — editorial split layout, no full-bg image */
+    #home{min-height:100vh;display:grid;grid-template-columns:54% 46%;background:var(--bg);position:relative;overflow:hidden}
+    .hero-wm{position:absolute;font-family:'Playfair Display',serif;font-size:32vw;font-weight:700;color:rgba(28,25,23,.025);top:52%;left:-2%;transform:translateY(-50%);white-space:nowrap;pointer-events:none;user-select:none;line-height:1;z-index:1}
+    .hero-left{display:flex;flex-direction:column;justify-content:center;padding:160px 72px 100px;position:relative;z-index:2}
+    .hero-eyebrow{display:flex;align-items:center;gap:16px;font-size:9px;letter-spacing:4.5px;text-transform:uppercase;color:var(--tan);margin-bottom:48px;opacity:0;transform:translateY(14px);animation:fadeUp .8s var(--ease) .3s forwards}
+    .hero-eyebrow-line{width:36px;height:1px;background:var(--tan);flex-shrink:0}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(48px,5.8vw,88px);font-weight:400;line-height:1.02;color:var(--ink);margin-bottom:28px;opacity:0;transform:translateY(26px);animation:fadeUp .9s var(--ease) .5s forwards;letter-spacing:-2px}
+    .hero-title em{font-style:italic;color:var(--tan-dk);display:block}
+    .hero-title strong{font-weight:600}
+    .hero-sub{font-size:14px;line-height:2.1;color:var(--ink-3);max-width:400px;margin-bottom:50px;font-weight:300;opacity:0;transform:translateY(14px);animation:fadeUp .9s var(--ease) .7s forwards}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s var(--ease) .9s forwards}
+    .hero-scroll{margin-top:56px;display:flex;align-items:center;gap:14px;opacity:0;animation:fadeIn 1s var(--ease) 1.5s forwards}
+    .scroll-label{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:var(--ink-3)}
+    .scroll-bar{width:44px;height:1px;background:rgba(28,25,23,.15);position:relative;overflow:hidden}
+    .scroll-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--tan);animation:sLine 2.2s ease-in-out infinite}
+    @keyframes sLine{0%{left:-100%}60%,100%{left:100%}}
+    .hero-right{position:relative;overflow:hidden}
+    .hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 10%;filter:brightness(.88) saturate(.82);transition:transform 9s var(--ease)}
+    #home:hover .hero-right img{transform:scale(1.04)}
+    .hero-float{position:absolute;bottom:56px;left:-32px;background:var(--bg);padding:24px 30px;z-index:3;box-shadow:0 12px 52px rgba(28,25,23,.1)}
+    .hf-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:400;color:var(--ink);line-height:1;display:block}
+    .hf-label{font-size:8.5px;letter-spacing:3px;text-transform:uppercase;color:var(--tan);margin-top:6px;display:block}
 
     /* MARQUEE — thin editorial ticker */
     .mq{overflow:hidden;background:var(--ink);padding:11px 0;white-space:nowrap}
@@ -328,7 +329,7 @@
 </div>
 
 <!-- NAVBAR -->
-<nav class="nav hero-nav" id="nav">
+<nav class="nav" id="nav">
   <ul class="nav-links" id="navLinks">
     <li><a href="#home" class="active">Home</a></li>
     <li><a href="#story">Our Story</a></li>
@@ -354,22 +355,29 @@
 
 <!-- HERO -->
 <section id="home">
-  <div class="hero-bg" id="heroBg">
-    <img src="./images/trinh-minh-th-MQOA0n3chA8-unsplash.jpg" alt="LaBelle" loading="eager"/>
-  </div>
-  <div class="hero-ov"></div>
-  <div class="hero-cnt">
-    <p class="hero-eyebrow">Luxury Indian Bags &nbsp;·&nbsp; Est. 2018</p>
-    <h1 class="hero-title">Wear Your<br><em>Heritage,</em><br>Own Your Grace</h1>
+  <div class="hero-wm" aria-hidden="true">LaBelle</div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      <span>Luxury Indian Bags &nbsp;·&nbsp; Est. 2018</span>
+    </div>
+    <h1 class="hero-title"><strong>Where</strong><br><em>Heritage</em><br><strong>Meets Grace</strong></h1>
     <p class="hero-sub">Handcrafted clutches, embroidered potlis &amp; exquisite party bags — where Indian artistry meets contemporary elegance.</p>
     <div class="hero-btns">
       <a href="#products" class="btn-ink">Explore Collection</a>
-      <a href="#story"    class="btn-outline btn-outline-lt">Our Craft</a>
+      <a href="#story" class="btn-outline">Our Craft</a>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-bar"></div>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span class="scroll-label">Scroll</span>
-    <div class="scroll-bar"></div>
+  <div class="hero-right" id="heroRight">
+    <img src="./images/muneeb-malhotra-PakScfKOZfA-unsplash.jpg" alt="LaBelle" loading="eager"/>
+    <div class="hero-float">
+      <span class="hf-num">50K+</span>
+      <span class="hf-label">Happy Clients</span>
+    </div>
   </div>
 </section>
 
@@ -840,20 +848,14 @@ document.querySelectorAll('a,button').forEach(el=>{
   el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
 });
 
-/* NAVBAR — switch hero/light modes on scroll */
+/* NAVBAR */
 const nav=document.getElementById('nav');
-function updateNav(){
-  const atTop=scrollY<80;
-  nav.classList.toggle('stuck',!atTop);
-  nav.classList.toggle('hero-nav',atTop);
-}
-window.addEventListener('scroll',updateNav,{passive:true});
-updateNav();
+window.addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>80),{passive:true});
 
 /* PARALLAX */
-const heroBg=document.getElementById('heroBg'),parBg=document.getElementById('parBg'),parWrap=document.getElementById('parWrap');
+const heroRight=document.getElementById('heroRight'),parBg=document.getElementById('parBg'),parWrap=document.getElementById('parWrap');
 window.addEventListener('scroll',()=>{
-  if(heroBg) heroBg.style.transform=`translateY(${scrollY*.38}px) scale(1.1)`;
+  if(heroRight){const img=heroRight.querySelector('img');if(img)img.style.transform=`scale(1.06) translateY(${scrollY*.1}px)`;}
   if(parBg&&parWrap){const r=parWrap.getBoundingClientRect();parBg.style.transform=`translateY(${(innerHeight/2-r.top-r.height/2)*.28}px)`;}
 },{passive:true});
 
