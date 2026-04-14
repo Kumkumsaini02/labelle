@@ -107,22 +107,25 @@
     .h-l3{text-align:right;padding-right:1.5vw;animation-delay:.62s !important}
     /* thin rule */
     .hero-rule{height:1px;background:rgba(28,25,23,.1);margin:32px 7vw;opacity:0;animation:fadeIn .8s var(--ease) .7s forwards}
-    /* cinematic image strip */
-    .hero-strip{height:38vh;overflow:hidden;position:relative;margin:0 7vw;opacity:0;animation:fadeUp .9s var(--ease) .78s forwards}
-    .hero-strip img{width:100%;height:100%;object-fit:cover;object-position:center 28%;filter:brightness(.84) saturate(.82);transform:scale(1.06);transition:transform 9s var(--ease)}
+    /* cinematic image strip — tall enough for portrait shot */
+    .hero-strip{height:58vh;overflow:hidden;position:relative;margin:0 7vw;opacity:0;animation:fadeUp .9s var(--ease) .78s forwards}
+    .hero-strip img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(.88) saturate(.84);transform:scale(1.04);transition:transform 9s var(--ease)}
     #home:hover .hero-strip img{transform:scale(1.0)}
-    .strip-chips{position:absolute;bottom:16px;right:18px;display:flex;gap:6px;z-index:2}
-    .strip-chip{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(250,248,245,.65);background:rgba(22,18,12,.42);padding:6px 13px;backdrop-filter:blur(10px)}
+    .strip-chips{position:absolute;bottom:18px;right:20px;display:flex;gap:6px;z-index:2}
+    .strip-chip{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(250,248,245,.7);background:rgba(22,18,12,.44);padding:6px 14px;backdrop-filter:blur(12px)}
     /* thin rule */
-    .hero-rule-2{height:1px;background:rgba(28,25,23,.1);margin:28px 7vw 26px;opacity:0;animation:fadeIn .8s var(--ease) .9s forwards}
-    /* bottom row */
-    .hero-bottom{display:flex;align-items:center;justify-content:space-between;padding:0 7vw;gap:40px;opacity:0;animation:fadeUp .9s var(--ease) .95s forwards}
-    .hero-sub{font-size:13.5px;line-height:2;color:var(--ink-3);max-width:380px;font-weight:300}
-    .hero-btns{display:flex;gap:12px;flex-shrink:0}
-    /* scroll */
-    .hero-scroll{position:absolute;bottom:22px;left:7vw;display:flex;align-items:center;gap:13px;opacity:0;animation:fadeIn 1s var(--ease) 1.4s forwards}
-    .scroll-label{font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;color:var(--ink-3)}
-    .scroll-bar{width:40px;height:1px;background:rgba(28,25,23,.12);position:relative;overflow:hidden}
+    .hero-rule-2{height:1px;background:rgba(28,25,23,.1);margin:30px 7vw 26px;opacity:0;animation:fadeIn .8s var(--ease) .9s forwards}
+    /* bottom — 3-col creative: stats | copy | CTAs */
+    .hero-bottom{display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:0 48px;padding:0 7vw;opacity:0;animation:fadeUp .9s var(--ease) .95s forwards}
+    .hero-stats{display:flex;flex-direction:column;gap:20px;padding-top:2px;flex-shrink:0}
+    .h-stat-n{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;color:var(--ink);line-height:1;display:block}
+    .h-stat-l{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--tan);margin-top:3px;display:block}
+    .hero-sub{font-size:13px;line-height:2.1;color:var(--ink-3);font-weight:300;border-left:1px solid rgba(28,25,23,.12);padding-left:40px}
+    .hero-btns{display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex-shrink:0}
+    /* scroll — tucked inside bottom, below CTAs */
+    .hero-scroll{display:flex;align-items:center;gap:12px;margin-top:18px;justify-content:flex-end;opacity:0;animation:fadeIn 1s var(--ease) 1.4s forwards}
+    .scroll-label{font-size:8px;letter-spacing:3.5px;text-transform:uppercase;color:var(--ink-3)}
+    .scroll-bar{width:36px;height:1px;background:rgba(28,25,23,.12);position:relative;overflow:hidden}
     .scroll-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--tan);animation:sLine 2.4s ease-in-out infinite}
     @keyframes sLine{0%{left:-100%}60%,100%{left:100%}}
 
@@ -379,7 +382,7 @@
   <div class="hero-rule"></div>
 
   <div class="hero-strip" id="heroStrip">
-    <img src="./images/trinh-minh-th-MQOA0n3chA8-unsplash.jpg" alt="LaBelle Collection" loading="eager"/>
+    <img src="./images/tatiana-ri-kfxWuebAL5E-unsplash.jpg" alt="LaBelle Collection" loading="eager"/>
     <div class="strip-chips">
       <span class="strip-chip">New Collection</span>
       <span class="strip-chip">Handcrafted in India</span>
@@ -389,16 +392,30 @@
   <div class="hero-rule-2"></div>
 
   <div class="hero-bottom">
-    <p class="hero-sub">Handcrafted clutches, embroidered potlis &amp; exquisite party bags — where Indian artistry meets contemporary elegance.</p>
-    <div class="hero-btns">
-      <a href="#products" class="btn-ink">Explore Collection</a>
-      <a href="#story" class="btn-outline">Our Craft</a>
+    <!-- stats col -->
+    <div class="hero-stats">
+      <div>
+        <span class="h-stat-n">2K+</span>
+        <span class="h-stat-l">Designs</span>
+      </div>
+      <div>
+        <span class="h-stat-n">50K+</span>
+        <span class="h-stat-l">Clients</span>
+      </div>
     </div>
-  </div>
-
-  <div class="hero-scroll">
-    <span class="scroll-label">Scroll</span>
-    <div class="scroll-bar"></div>
+    <!-- copy col -->
+    <p class="hero-sub">Handcrafted clutches, embroidered potlis &amp; exquisite party bags — where Indian artistry meets contemporary elegance.</p>
+    <!-- cta col -->
+    <div>
+      <div class="hero-btns">
+        <a href="#products" class="btn-ink">Explore Collection</a>
+        <a href="#story" class="btn-outline">Our Craft</a>
+      </div>
+      <div class="hero-scroll">
+        <span class="scroll-label">Scroll</span>
+        <div class="scroll-bar"></div>
+      </div>
+    </div>
   </div>
 
 </section>
