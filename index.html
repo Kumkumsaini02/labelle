@@ -92,28 +92,39 @@
     .sec-h2-lt em{color:rgba(255,255,255,.7);font-style:italic}
     .sec-hd{text-align:center}
 
-    /* HERO — editorial split layout, no full-bg image */
-    #home{min-height:100vh;display:grid;grid-template-columns:54% 46%;background:var(--bg);position:relative;overflow:hidden}
-    .hero-wm{position:absolute;font-family:'Playfair Display',serif;font-size:32vw;font-weight:700;color:rgba(28,25,23,.025);top:52%;left:-2%;transform:translateY(-50%);white-space:nowrap;pointer-events:none;user-select:none;line-height:1;z-index:1}
-    .hero-left{display:flex;flex-direction:column;justify-content:center;padding:160px 72px 100px;position:relative;z-index:2}
-    .hero-eyebrow{display:flex;align-items:center;gap:16px;font-size:9px;letter-spacing:4.5px;text-transform:uppercase;color:var(--tan);margin-bottom:48px;opacity:0;transform:translateY(14px);animation:fadeUp .8s var(--ease) .3s forwards}
-    .hero-eyebrow-line{width:36px;height:1px;background:var(--tan);flex-shrink:0}
-    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(48px,5.8vw,88px);font-weight:400;line-height:1.02;color:var(--ink);margin-bottom:28px;opacity:0;transform:translateY(26px);animation:fadeUp .9s var(--ease) .5s forwards;letter-spacing:-2px}
-    .hero-title em{font-style:italic;color:var(--tan-dk);display:block}
-    .hero-title strong{font-weight:600}
-    .hero-sub{font-size:14px;line-height:2.1;color:var(--ink-3);max-width:400px;margin-bottom:50px;font-weight:300;opacity:0;transform:translateY(14px);animation:fadeUp .9s var(--ease) .7s forwards}
-    .hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s var(--ease) .9s forwards}
-    .hero-scroll{margin-top:56px;display:flex;align-items:center;gap:14px;opacity:0;animation:fadeIn 1s var(--ease) 1.5s forwards}
-    .scroll-label{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:var(--ink-3)}
-    .scroll-bar{width:44px;height:1px;background:rgba(28,25,23,.15);position:relative;overflow:hidden}
-    .scroll-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--tan);animation:sLine 2.2s ease-in-out infinite}
+    /* HERO — editorial stagger typographic layout */
+    #home{min-height:100vh;display:flex;flex-direction:column;justify-content:center;background:var(--bg);padding:120px 0 64px;position:relative;overflow:hidden}
+    /* centered eyebrow */
+    .hero-eyebrow{display:flex;align-items:center;justify-content:center;gap:22px;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--tan);margin-bottom:52px;padding:0 7vw;opacity:0;animation:fadeUp .8s var(--ease) .2s forwards}
+    .hero-eyebrow-line{flex:1;max-width:80px;height:1px;background:rgba(156,126,86,.35)}
+    /* staggered heading */
+    .hero-heading{padding:0 7vw;margin-bottom:0}
+    .h-row{overflow:hidden}
+    .h-sm{font-family:'Raleway',sans-serif;font-size:clamp(13px,1.8vw,22px);font-weight:300;color:var(--ink-2);letter-spacing:8px;text-transform:uppercase;display:block;opacity:0;transform:translateY(28px);animation:fadeUp .9s var(--ease) .35s forwards}
+    .h-lg{font-family:'Playfair Display',serif;font-size:clamp(80px,13.5vw,195px);font-weight:400;line-height:.9;color:var(--ink);letter-spacing:-4px;font-style:italic;display:block;opacity:0;transform:translateY(50px);animation:fadeUp 1s var(--ease) .5s forwards}
+    .h-l1{text-align:left;padding-left:1vw}
+    .h-l2{text-align:center;margin-top:-.02em}
+    .h-l3{text-align:right;padding-right:1.5vw;animation-delay:.62s !important}
+    /* thin rule */
+    .hero-rule{height:1px;background:rgba(28,25,23,.1);margin:32px 7vw;opacity:0;animation:fadeIn .8s var(--ease) .7s forwards}
+    /* cinematic image strip */
+    .hero-strip{height:38vh;overflow:hidden;position:relative;margin:0 7vw;opacity:0;animation:fadeUp .9s var(--ease) .78s forwards}
+    .hero-strip img{width:100%;height:100%;object-fit:cover;object-position:center 28%;filter:brightness(.84) saturate(.82);transform:scale(1.06);transition:transform 9s var(--ease)}
+    #home:hover .hero-strip img{transform:scale(1.0)}
+    .strip-chips{position:absolute;bottom:16px;right:18px;display:flex;gap:6px;z-index:2}
+    .strip-chip{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(250,248,245,.65);background:rgba(22,18,12,.42);padding:6px 13px;backdrop-filter:blur(10px)}
+    /* thin rule */
+    .hero-rule-2{height:1px;background:rgba(28,25,23,.1);margin:28px 7vw 26px;opacity:0;animation:fadeIn .8s var(--ease) .9s forwards}
+    /* bottom row */
+    .hero-bottom{display:flex;align-items:center;justify-content:space-between;padding:0 7vw;gap:40px;opacity:0;animation:fadeUp .9s var(--ease) .95s forwards}
+    .hero-sub{font-size:13.5px;line-height:2;color:var(--ink-3);max-width:380px;font-weight:300}
+    .hero-btns{display:flex;gap:12px;flex-shrink:0}
+    /* scroll */
+    .hero-scroll{position:absolute;bottom:22px;left:7vw;display:flex;align-items:center;gap:13px;opacity:0;animation:fadeIn 1s var(--ease) 1.4s forwards}
+    .scroll-label{font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;color:var(--ink-3)}
+    .scroll-bar{width:40px;height:1px;background:rgba(28,25,23,.12);position:relative;overflow:hidden}
+    .scroll-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--tan);animation:sLine 2.4s ease-in-out infinite}
     @keyframes sLine{0%{left:-100%}60%,100%{left:100%}}
-    .hero-right{position:relative;overflow:hidden}
-    .hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 10%;filter:brightness(.88) saturate(.82);transition:transform 9s var(--ease)}
-    #home:hover .hero-right img{transform:scale(1.04)}
-    .hero-float{position:absolute;bottom:56px;left:-32px;background:var(--bg);padding:24px 30px;z-index:3;box-shadow:0 12px 52px rgba(28,25,23,.1)}
-    .hf-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:400;color:var(--ink);line-height:1;display:block}
-    .hf-label{font-size:8.5px;letter-spacing:3px;text-transform:uppercase;color:var(--tan);margin-top:6px;display:block}
 
     /* MARQUEE — thin editorial ticker */
     .mq{overflow:hidden;background:var(--ink);padding:11px 0;white-space:nowrap}
@@ -352,30 +363,44 @@
 
 <!-- HERO -->
 <section id="home">
-  <div class="hero-wm" aria-hidden="true">LaBelle</div>
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-line"></span>
-      <span>Luxury Indian Bags &nbsp;·&nbsp; Est. 2018</span>
+
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-line"></span>
+    <span>Luxury Indian Bags &nbsp;·&nbsp; Est. 2018</span>
+    <span class="hero-eyebrow-line"></span>
+  </div>
+
+  <div class="hero-heading">
+    <div class="h-row"><span class="h-sm h-l1">The Art of</span></div>
+    <div class="h-row"><span class="h-lg h-l2">Heritage</span></div>
+    <div class="h-row"><span class="h-sm h-l3">Redefined.</span></div>
+  </div>
+
+  <div class="hero-rule"></div>
+
+  <div class="hero-strip" id="heroStrip">
+    <img src="./images/trinh-minh-th-MQOA0n3chA8-unsplash.jpg" alt="LaBelle Collection" loading="eager"/>
+    <div class="strip-chips">
+      <span class="strip-chip">New Collection</span>
+      <span class="strip-chip">Handcrafted in India</span>
     </div>
-    <h1 class="hero-title"><strong>Where</strong><br><em>Heritage</em><br><strong>Meets Grace</strong></h1>
+  </div>
+
+  <div class="hero-rule-2"></div>
+
+  <div class="hero-bottom">
     <p class="hero-sub">Handcrafted clutches, embroidered potlis &amp; exquisite party bags — where Indian artistry meets contemporary elegance.</p>
     <div class="hero-btns">
       <a href="#products" class="btn-ink">Explore Collection</a>
       <a href="#story" class="btn-outline">Our Craft</a>
     </div>
-    <div class="hero-scroll">
-      <span class="scroll-label">Scroll</span>
-      <div class="scroll-bar"></div>
-    </div>
   </div>
-  <div class="hero-right" id="heroRight">
-    <img src="./images/muneeb-malhotra-PakScfKOZfA-unsplash.jpg" alt="LaBelle" loading="eager"/>
-    <div class="hero-float">
-      <span class="hf-num">50K+</span>
-      <span class="hf-label">Happy Clients</span>
-    </div>
+
+  <div class="hero-scroll">
+    <span class="scroll-label">Scroll</span>
+    <div class="scroll-bar"></div>
   </div>
+
 </section>
 
 <!-- MARQUEE -->
@@ -834,9 +859,9 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>80),{passive:true});
 
 /* PARALLAX */
-const heroRight=document.getElementById('heroRight'),parBg=document.getElementById('parBg'),parWrap=document.getElementById('parWrap');
+const heroStrip=document.getElementById('heroStrip'),parBg=document.getElementById('parBg'),parWrap=document.getElementById('parWrap');
 window.addEventListener('scroll',()=>{
-  if(heroRight){const img=heroRight.querySelector('img');if(img)img.style.transform=`scale(1.06) translateY(${scrollY*.1}px)`;}
+  if(heroStrip){const img=heroStrip.querySelector('img');if(img)img.style.transform=`scale(1.06) translateY(${scrollY*.08}px)`;}
   if(parBg&&parWrap){const r=parWrap.getBoundingClientRect();parBg.style.transform=`translateY(${(innerHeight/2-r.top-r.height/2)*.28}px)`;}
 },{passive:true});
 
